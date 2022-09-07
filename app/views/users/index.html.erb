@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-3">
       <%= render "info", user:@user %>
-      <%= render "edit", user:@user %>
+      <%= render "relationships/btn", user:@user %>
       <%= render "books/create", book:@book %>
     </div>
     <div class="col-md-8 offset-md-1">
@@ -20,6 +20,9 @@
           <tr>
             <td><%= image_tag user.get_profile_image(100,100) %></td>
             <td><%= user.name %></td>
+            <td>フォロー数:<%= user.followings.count %></td>
+            <td>フォロアー数:<%= user.followers.count %></td>
+            <td><%= render "relationships/btn", user:user %></td>
             <td><%= link_to "show" ,user_path(user) %></td>
           </tr>
           <% end %>

@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th>コメント投稿者</th>
+      <th>コメント内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.name %></td>
+        <td><%= comment.comment %></td>
+        <td><%= link_to "削除", book_comment_path(comment.book, comment), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
