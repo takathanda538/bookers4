@@ -21,7 +21,9 @@
               <%= @book.title %></td>
               <% end %>
             <td><%= @book.body %></td>
-            <td><%= render "favorites/form", book:@book %></td>
+            <td id="favorite_btn_<%= @book.id %>">
+            <%= render "favorites/form", book:@book %>
+            </td>
             <td>
               <% if @user == current_user %>
                 <%= link_to edit_book_path(@book), class: "btn btn-sm btn-success" do %>
@@ -40,9 +42,13 @@
         </tbody>
       </table>
       <% if @comments != 0 %>
+      <div id="comments_area">
       <%= render "comments/index", comments:@comments %>
+      </div>
       <% end %>
+      <div class="new_comment">
       <%= render "comments/form", comment:@comment, book:@book %>
+      </div>
     </div>
   </div>
 </div>
